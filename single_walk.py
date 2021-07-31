@@ -38,9 +38,9 @@ def run_sim():
     stop: bool = False
     n: int = 0
     t: int = 0
-    while stop != True:
+    while n <= 10000:
         if check_neighbors(white[n], black[n]) == True:
-            stop = True
+            break
         else:
             dt_w = random.sample([i for i in range(-1,2)], 2)
             dt_bl = random.sample([i for i in range(-1,2)], 2)
@@ -48,7 +48,7 @@ def run_sim():
             black.append(moves(black[n], dt_bl))
             t = t+1
             n = n+1
-    return n
+    return t
 
 t_dist = [run_sim() for i in range(100)]
 print(t_dist)
